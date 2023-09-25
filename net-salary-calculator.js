@@ -4,9 +4,7 @@
       the other values will be calculated.*/
 function calculateNetSalary(basicSalary,benefits){
     grossSalary = basicSalary + benefits;
-    housingLevy = (1.5/100) * grossSalary;
-    personalRelief = 2400;
-
+    console.log(`Gross Salary = kshs:${grossSalary}`);
 /*==> PAYE CALCULATION: An "If-statement" determines the PAYE tax amount using 
       the latest rates set.*/
     if(grossSalary >= 0 && grossSalary <= 24000){
@@ -20,6 +18,7 @@ function calculateNetSalary(basicSalary,benefits){
     } else{
         paye = (35/100) * grossSalary;
     }
+    console.log(`PAYE = kshs:${paye}`);
 /*==> NHIF CALCULATION: "If-statement" determines the health insurance 
       premium using the latest rates set.*/
     if(grossSalary >= 0 && grossSalary <= 5999){
@@ -57,6 +56,7 @@ function calculateNetSalary(basicSalary,benefits){
     } else{
         nhif = 1700;
     }
+    console.log(`NHIF = kshs:${nhif}`);
 /*==> NSSF CALCULATION: "If-statement" determines the NSSF deduuction 
       amount using the latest rates set.*/
     if(grossSalary <= 18000){
@@ -64,27 +64,23 @@ function calculateNetSalary(basicSalary,benefits){
     } else{
         nssf = (6/100) * 18000;
     }
+    console.log(`NSSF = kshs:${nssf}`);
 /*==> The total deductions are then calculated and used to determine
       the net salary by subtracting the total deductions(after subtracting 
       personal relief). from the gross salary */
-deductions = paye + nhif + nssf + housingLevy;
-netSalary = grossSalary - (deductions - personalRelief);
+    housingLevy = (1.5/100) * grossSalary;
+    console.log(`Housing Levy = kshs:${housingLevy}`);
+    personalRelief = 2400;
+    console.log(`Personal Relief = kshs:${personalRelief}`);
+    deductions = (paye + nhif + nssf + housingLevy) - personalRelief;
+    console.log(`Total deductions = kshs:${deductions}`);
 //The calculateNetSalary function then returns the net salary.
+    netSalary = grossSalary - deductions;
+    console.log(`Net Salary = kshs:${netSalary}`);
+
 return netSalary;
 }
 //==> EXAMPLE FUNCTION CALL + CHECKING OF VALUES USING CONSOLE.LOG
-console.log(calculateNetSalary(75700,23750));
-console.log(grossSalary);
-console.log(deductions);
-console.log(nssf);
-console.log(nhif);
-console.log(paye);
-console.log(housingLevy);
-console.log(`================`);
-console.log(calculateNetSalary(45700,3750));
-console.log(grossSalary);
-console.log(deductions);
-console.log(nssf);
-console.log(nhif);
-console.log(paye);
-console.log(housingLevy);
+calculateNetSalary(75700,23750);
+console.log(`==============================`);
+calculateNetSalary(45700,3750);
