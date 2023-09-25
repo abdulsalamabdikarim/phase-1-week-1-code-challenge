@@ -12,7 +12,7 @@ The first problem required one to write a function that prompts the user to inpu
         A > 79, B - 60 to 79, C -  59 to 49, D - 40 to 49, E - less 40.
 
 SOLUTION:
-The function "grades" takes one parameter (which is studentMarks). An If statement then sets the boundaries for the function parameter (it should be a number between 0 and 100). If the argument passed falls within the boundaries then the value is passed to a nested if statement that defines the grade boundaries and prints out the grade attained.
+The function "grades" takes one parameter (which is studentMarks). An If statement then sets the boundaries for the function parameter (it should be a number between 0 and 100). If the argument passed falls within the boundaries then the value is passed to a nested if statement that defines the grade boundaries and determines the grade attained.The function then returns the value of "grade".
 If the argument passed does not fall within the boundaries, the function outputs a message saying "Invalid input.".
 
 
